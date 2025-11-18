@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#remember run chmod+x mon_toogle.sh
+#run with "./mon_toggle.sh"
+
 # get wireless interface name (first with wireless)
 iface=$(iw dev | awk '$1=="Interface"{print $2}' | head -n 1)
 
