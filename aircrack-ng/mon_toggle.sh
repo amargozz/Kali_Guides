@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#required package: aircrack-ng
 #remember run chmod+x mon_toogle.sh
 #run with "./mon_toggle.sh"
 
